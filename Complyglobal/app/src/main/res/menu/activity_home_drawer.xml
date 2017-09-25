@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Compliance">
+        <menu>
+            <item
+                android:id="@+id/nav_dashboard"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="Dashboard" />
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_due_to_day"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Due Today" />
+        <item
+            android:id="@+id/nav_checked_list"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Checked List" />
+        <item
+            android:id="@+id/nav_registers"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Registers" />
+
+        <item
+            android:id="@+id/nav_registrations"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Registrations" />
+    </group>
+
+</menu>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1b75b1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logo"
+            android:id="@+id/imageView"
+            android:elevation="1dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:weightSum="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp">
+
+            <EditText
+                android:layout_width="323dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="User Name"
+                android:layout_marginTop="40dp"
+                android:textColor="#1b75b1"
+                android:ems="10"
+                android:paddingBottom="20dp"
+                android:id="@+id/userName"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_gravity="center"/>
+
+            <EditText
+                android:layout_width="323dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:inputType="text|textPassword"
+                android:hint="Password"
+                android:layout_marginTop="40dp"
+                android:textColor="#1b75b1"
+                android:ems="10"
+                android:paddingBottom="20dp"
+                android:id="@+id/password"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"/>
+
+
+            <Button
+                android:text="Login"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="166dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/login_button"
+                android:background="@drawable/button_style"
+                android:layout_gravity="right"
+                android:textColor="#FFFFFF"
+                android:layout_marginRight="40dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:text="ComplyGlobalTM is the cloud-based compliance software platform that helps you govern and track your domestic and global regulatory requirements in real time to manage compliance risk."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_marginTop="35dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:lineSpacingExtra="10sp"
+            android:textSize="17dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="35dp" />
+
+
+    </LinearLayout>
+</ScrollView>
