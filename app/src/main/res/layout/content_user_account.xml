@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="app.complyglobal.activity.UserAccount"
+    tools:showIn="@layout/activity_user_account">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="@drawable/style_border_layout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15sp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/user_name_hedding"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="admin@complyglobal.com"
+                android:id="@+id/user_name"
+                android:textSize="16dp"
+                android:textColor="@android:color/black"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mode_edit"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:id="@+id/edit_user_name" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="@drawable/style_border_layout"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Name"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15sp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/first_name_hedding"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin"
+                android:id="@+id/first_name"
+                android:textSize="16dp"
+                android:textColor="@android:color/black"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mode_edit"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:id="@+id/edit_first_name" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="@drawable/style_border_layout"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15sp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/Last_name_hedding"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin"
+                android:id="@+id/Last_name"
+                android:textSize="16dp"
+                android:textColor="@android:color/black"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mode_edit"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:id="@+id/edit_last_name" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="@drawable/style_border_layout"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile Number"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15sp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/mobile_number_hedding"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+91"
+                android:id="@+id/moble_number"
+                android:textSize="16dp"
+                android:textColor="@android:color/black"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mode_edit"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:id="@+id/edit_mobile_number" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="@drawable/style_border_layout"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mobile PIN"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:textSize="15sp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/mobile_pin_hedding"
+                android:layout_marginTop="5dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="****"
+                android:id="@+id/mobile_pin"
+                android:textSize="16dp"
+                android:textColor="@android:color/black"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_mode_edit"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:id="@+id/edit_mpin" />
+        </RelativeLayout>
+    </LinearLayout>
+    <Button
+        android:text="Remove Account"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:id="@+id/remove_account_button"
+        android:background="@drawable/button_without_radius"
+        android:layout_gravity="right"
+        android:layout_alignParentBottom="true"
+        android:textColor="#FFFFFF"/>
+</RelativeLayout>

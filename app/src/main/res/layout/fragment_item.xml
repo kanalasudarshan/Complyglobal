@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/style_border_layout"
+    android:foreground="?attr/selectableItemBackground"
+    android:id="@+id/task_tiles">
+
+    <TextView
+        android:id="@+id/id"
+        android:text="21"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/content"
+        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/style_border_layout_app_color"
+        android:layout_toEndOf="@+id/id"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="5dp" />
+
+    <TextView
+        android:id="@+id/due_one_hedding"
+        android:text="Due On :"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/due_one"
+        android:layout_alignStart="@+id/content" />
+    <TextView
+        android:id="@+id/due_one"
+        android:text="15-06-2017"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/severity_hedding"
+        android:layout_alignBottom="@+id/severity_hedding"
+        android:layout_toStartOf="@+id/severity_hedding"
+        android:textColor="@color/due" />
+    <TextView
+        android:id="@+id/severity_hedding"
+        android:text="Severity :"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/severity"
+        android:layout_marginBottom="5dp" />
+    <TextView
+        android:id="@+id/severity"
+        android:text="CRITICAL"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/red" />
+</RelativeLayout>

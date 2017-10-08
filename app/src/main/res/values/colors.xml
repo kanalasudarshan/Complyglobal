@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="balck">#000000</color>
+    <color name="red">#ff0000</color>
+
+    <color name="colorApp">#1b75b1</color>
+    <color name="colorLight">#bc1b75b1</color>
+
+    <color name="transparent">#41000000</color>
+    <color name="white_smoke">#F5F5F5</color>
+
+    <color name="delay">#FF0000</color>
+    <color name="due">#2b7ed0</color>
+    <color name="completed">#41a21b</color>
+    <color name="total">#41000000</color>
+    <color name="inprogress">#dad11f</color>
+
+</resources>

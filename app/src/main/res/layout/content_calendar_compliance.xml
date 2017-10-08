@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/calendar_compliance_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.CalendarCompliance"
+    tools:showIn="@layout/activity_calendar_compliance">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_smoke"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:translationZ="10dp"
+                android:gravity="center_horizontal"
+                android:background="@drawable/style_border_layout">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:id="@+id/list_header"
+                        android:text="Calendar Compliance"
+                        android:textColor="@color/colorApp"
+                        android:textSize="25sp"
+                        android:layout_weight=".50"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/style_border_right"
+                        android:paddingRight="20dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/list_delay_count_text"
+                            android:text="Delay"
+                            android:textSize="14sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/list_delay_count"
+                            android:text="40"
+                            android:textColor="@color/delay"
+                            android:background="@drawable/style_border_oval_red"
+                            android:textSize="14sp"
+                            android:layout_weight=".20"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:background="@drawable/style_border_right"
+                        android:paddingRight="20dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/list_inprogress_count_text"
+                            android:text="Inprogress"
+                            android:textSize="14sp"
+                            android:layout_weight=".30"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/list_due_count"
+                            android:text="40"
+                            android:background="@drawable/style_border_oval_yellow"
+                            android:textColor="@color/inprogress"
+                            android:textSize="14sp"
+                            android:layout_weight=".20"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:autoText="false" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/list_due_count_text"
+                            android:text="Due"
+                            android:textSize="14sp"
+                            android:layout_weight=".30" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/list_completed_count"
+                            android:text="21"
+                            android:background="@drawable/style_border_oval_due"
+                            android:textColor="@color/due"
+                            android:textSize="14sp"
+                            android:layout_weight=".20"
+                            android:layout_marginLeft="10dp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:translationZ="10dp"
+                android:background="@drawable/style_border_layout"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/style_border_layout"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/delay"
+                        android:text="Delay"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Last 3 delay compliace"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/delay_id_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/delay_content_1"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/delay_id_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/delay_content_2"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/delay_id_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/delay_content_3"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/delay_show_more"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_expand_more"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp" />
+                    <TextView
+                        android:text="Show More"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:translationZ="10dp"
+                android:background="@drawable/style_border_layout"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/style_border_layout"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/inprogress"
+                        android:text="Inprogress"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Last 3 inprogress compliace"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/due_id_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/due_content_1"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/due_id_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/due_content_2"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/due_id_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/due_content_3"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/due_show_more"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_expand_more"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp" />
+                    <TextView
+                        android:text="Show More"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:translationZ="10dp"
+                android:background="@drawable/style_border_layout"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/style_border_layout"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@color/due"
+                        android:text="Due"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Last 3 due compliace"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/completed_id_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/completed_content_1"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/completed_id_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/completed_content_2"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/id_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin" />
+
+                    <TextView
+                        android:id="@+id/content_3"
+                        android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/completed_show_more"
+                    android:background="@drawable/style_border_layout"
+                    android:foreground="?attr/selectableItemBackground">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_expand_more"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp" />
+                    <TextView
+                        android:text="Show More"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/text_margin"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

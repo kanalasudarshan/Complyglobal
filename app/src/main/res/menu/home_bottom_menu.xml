@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/change_entity"
+        android:icon="@drawable/ic_user"
+        android:title="User" />
+    <item
+        android:id="@+id/action_settings"
+        android:title="Notifications"
+        android:icon="@drawable/ic_notification" />
+    <item
+        android:id="@+id/about_us"
+        android:title="Cloud"
+        android:icon="@drawable/ic_cloud_download" />
+    <item
+        android:id="@+id/Help"
+        android:title="Reminder"
+        android:icon="@drawable/ic_reminder"/>
+</menu>

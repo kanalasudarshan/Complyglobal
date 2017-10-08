@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Compliance">
+        <menu>
+            <item
+                android:id="@+id/nav_dashboard"
+                android:icon="@drawable/ic_dashboard"
+                android:title="Dashboard" />
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_due_to_day"
+            android:icon="@drawable/ic_due_today_1"
+            android:title="Calendar Compliance" />
+        <item
+            android:id="@+id/nav_checked_list"
+            android:icon="@drawable/ic_checklist"
+            android:title="Checked List" />
+        <item
+            android:id="@+id/nav_registers"
+            android:icon="@drawable/ic_register"
+            android:title="Registers" />
+
+        <item
+            android:id="@+id/nav_registrations"
+            android:icon="@drawable/ic_registration"
+            android:title="Registrations" />
+    </group>
+
+    <item android:title="User Account">
+        <menu>
+            <item
+                android:id="@+id/nav_user_account"
+                android:icon="@drawable/ic_user_round"
+                android:title="Account" />
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/logout"
+                android:title="Log Out" />
+        </menu>
+    </item>
+
+</menu>
