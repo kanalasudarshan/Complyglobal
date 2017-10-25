@@ -60,8 +60,10 @@
             android:background="@drawable/text_box_style"
             android:id="@+id/mobile_pin"
             android:padding="10dp"
+
             android:inputType="numberPassword"
-            android:maxLength="4" />
+            android:maxLength="4"
+            android:hint="* * * *" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,6 +80,7 @@
             android:background="@drawable/text_box_style"
             android:id="@+id/confirm_mobile_pin"
             android:padding="10dp"
+            android:hint="* * * *"
             android:inputType="numberPassword"
             android:maxLength="4" />
 

@@ -62,6 +62,10 @@ public class AfterLoginFirstTimePage extends AppCompatActivity {
                 if(mobilePin.getText().toString().equals("")){
                     noErrors=false;
                     mobilePinHeadding.setTextColor(Color.RED);
+                }else if(mobilePin.getText().toString().length()!=4){
+                    noErrors=false;
+                    mobilePin.setTextColor(Color.RED);
+                    Toast.makeText(getApplicationContext(), "Mobile PIN should have 4 digits", Toast.LENGTH_SHORT).show();
                 }else  if(confirmMobilePin.getText().toString().equals("")){
                     noErrors=false;
                     confirmMobilePinHeadding.setTextColor(Color.RED);

@@ -23,7 +23,7 @@ public class Register extends AppCompatActivity {
     LinearLayout due_view;
     LinearLayout due_show_more_view;
     LinearLayout completed_view;
-    LinearLayout completed_show_more_view;
+    LinearLayout inprogress_show_more_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +50,8 @@ public class Register extends AppCompatActivity {
                 startActivity(listPage);
             }
         });
-        completed_show_more_view=(LinearLayout)findViewById(R.id.completed_show_more);
-        completed_show_more_view.setOnClickListener(new View.OnClickListener() {
+        inprogress_show_more_view=(LinearLayout)findViewById(R.id.inprogress_show_more);
+        inprogress_show_more_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent listPage=new Intent(Register.this,RegisterListPage.class);

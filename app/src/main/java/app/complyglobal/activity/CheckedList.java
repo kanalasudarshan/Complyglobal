@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 
 import app.complyglobal.R;
 import app.complyglobal.fragment.CheckedListFragment;
+import app.complyglobal.helper.ServiceHelper;
 
 public class CheckedList extends AppCompatActivity {
 
@@ -31,7 +33,6 @@ public class CheckedList extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
 
         delay_show_more_view=(LinearLayout)findViewById(R.id.delay_show_more);
         delay_show_more_view.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +59,8 @@ public class CheckedList extends AppCompatActivity {
             }
         });
 
-
+        ServiceHelper restHelper=ServiceHelper.getInstance(getApplicationContext());
+        restHelper.getResponce();
 
     }
 

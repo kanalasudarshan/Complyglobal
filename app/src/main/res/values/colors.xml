@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#1b75b1</color>
+    <color name="colorPrimaryDark">#004a81</color>
+    <color name="colorAccent">#5da3e3</color>
 
 
     <color name="white">#FFFFFF</color>
@@ -21,4 +21,6 @@
     <color name="total">#41000000</color>
     <color name="inprogress">#dad11f</color>
 
+    <color name="icon_color">#FF059587</color>
+    <color name="layout_background">#ECEFF1</color>
 </resources>

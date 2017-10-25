@@ -26,27 +26,35 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_gravity="bottom"
-        android:background="@drawable/style_border_layout_top">
-        <TextView
-            android:layout_width="200dp"
+        android:layout_gravity="bottom">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Sort by"
-            android:id="@+id/sort_by"
-            android:textAllCaps="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center" />
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:text="Filters"
-            android:textAllCaps="true"
-            android:id="@+id/filters"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:gravity="center" />
+            android:background="@color/colorApp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Sort by"
+                android:id="@+id/sort_by"
+                android:textAllCaps="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight=".5"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:textColor="@color/white" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Filters"
+                android:textAllCaps="true"
+                android:id="@+id/filters"
+                android:layout_weight=".5"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

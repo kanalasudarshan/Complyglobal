@@ -1,11 +1,13 @@
 package app.complyglobal.activity;
 
+import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -29,6 +31,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import java.util.ArrayList;
 
 import app.complyglobal.R;
+import app.complyglobal.adapter.TabsPagerAdapter;
 import app.complyglobal.dummy.DummyContent;
 import app.complyglobal.fragment.CheckedListFragment;
 import app.complyglobal.fragment.DashboardFragment;
@@ -36,10 +39,11 @@ import app.complyglobal.fragment.DueTodayFragment;
 import app.complyglobal.fragment.RegisterListFragment;
 import app.complyglobal.fragment.RegistrationListFragment;
 import app.complyglobal.helper.BottomNavigationViewHelper;
+import app.complyglobal.helper.ServiceHelper;
 import app.complyglobal.service.NotificationService;
 import app.complyglobal.utils.SchedulerUtil;
 
-public class HomeActivity extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener,CheckedListFragment.OnListFragmentInteractionListener{
+public class HomeActivity extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener{
 
 
 
@@ -48,7 +52,7 @@ public class HomeActivity extends AppCompatActivity   implements NavigationView.
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
+    private TabsPagerAdapter dashboardTabs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,13 +73,23 @@ public class HomeActivity extends AppCompatActivity   implements NavigationView.
         BottomNavigationView bnav = (BottomNavigationView) findViewById(R.id.bottombar);
         BottomNavigationViewHelper.disableShiftMode(bnav);
 
-        Fragment fragment=new DashboardFragment();
+        /*Fragment fragment=new DashboardFragment();
         if(fragment!=null){
             FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.home_content,fragment);
             ft.commit();
-        }
+        }*/
 
+        dashboardTabs = new TabsPagerAdapter(getSupportFragmentManager());
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.tabsViewPage);
+        mViewPager.setAdapter(dashboardTabs);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.dashboardTabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
+        ServiceHelper restHelper=ServiceHelper.getInstance(getApplicationContext());
+        restHelper.getResponce();
         SchedulerUtil.scheduleJob(getApplicationContext());
 
     }
@@ -120,7 +134,26 @@ public class HomeActivity extends AppCompatActivity   implements NavigationView.
         boolean returnValue=false;
         switch (id){
             case R.id.change_entity :
-                startActivity(new Intent(HomeActivity.this,EntityChangePopActivity.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setCancelable(false);
+                builder.setView(R.layout.activity_entity_change_pop);
+                builder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        Intent homepage=new Intent(HomeActivity.this,HomeActivity.class);
+                        startActivity(homepage);
+                    }
+                });
+                builder.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert=builder.create();
+                alert.show();
+
                 returnValue=true;
                 break;
             case R.id.action_settings :
@@ -144,7 +177,10 @@ public class HomeActivity extends AppCompatActivity   implements NavigationView.
         Fragment fragment=null;
         switch (id) {
             case R.id.nav_dashboard:
-                fragment=new DashboardFragment();
+                //fragment=new DashboardFragment();
+                break;
+            case R.id.nav_calendar:
+                startActivity(new Intent(HomeActivity.this,CalendarActivity.class));
                 break;
             case R.id.nav_due_to_day:
                 startActivity(new Intent(HomeActivity.this,CalendarCompliance.class));
@@ -185,9 +221,5 @@ public class HomeActivity extends AppCompatActivity   implements NavigationView.
     }
 
 
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-
-    }
 
 }

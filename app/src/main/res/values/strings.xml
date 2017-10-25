@@ -38,8 +38,9 @@
     <string name="title_activity_checked_list">Checked List</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_registrations">Registrations</string>
-    <string name="title_activity_checked_list_page">Checked List View</string>
-    <string name="title_activity_calendar_compliance_list_page">Calendar Compliance List View</string>
-    <string name="title_activity_register_list_page">Register List View</string>
-    <string name="title_activity_registration_list_page">Registration List View</string>
+    <string name="title_activity_checked_list_page">Checked List</string>
+    <string name="title_activity_calendar_compliance_list_page">Calendar Compliance List</string>
+    <string name="title_activity_register_list_page">Register List</string>
+    <string name="title_activity_registration_list_page">Registration List</string>
+    <string name="title_activity_calendar">Calendar</string>
 </resources>

@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Annotation;
@@ -62,12 +63,19 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setView(R.layout.activity_loader);
+        AlertDialog alert=builder.create();
+        alert.show();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sharedPreferences=getSharedPreferences(Constants.PREFERENCES_KEY, Context.MODE_PRIVATE);
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         homepage=new Intent(MainActivity.this,HomeActivity.class);
+
 
 
         forgotMPIN=(TextView)findViewById(R.id.forgot_mpin);
@@ -239,6 +247,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        alert.cancel();
     }
 
     /**

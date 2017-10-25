@@ -48,11 +48,12 @@ public class DashboardFragment extends Fragment implements OnChartValueSelectedL
         View rootView = inflater.inflate(R.layout.fragment_dashboard_navingation, container, false);
         ytdPieChart(rootView);
         nonComplianceStats(rootView);
+        complianceTrend(rootView);
         return rootView;
     }
 
     private void ytdPieChart(View rootView){
-        PieChart pieChart = (PieChart)rootView.findViewById(R.id.piechart);
+        PieChart pieChart = (PieChart)rootView.findViewById(R.id.ytd_compliance_piechart);
         pieChart.setUsePercentValues(false);
         // IMPORTANT: In a PieChart, no values (Entry) should have the same
         // xIndex (even if from different DataSets), since no values can be
@@ -96,7 +97,58 @@ public class DashboardFragment extends Fragment implements OnChartValueSelectedL
     }
 
     private void nonComplianceStats(View rootView){
-        BarChart barChart = (BarChart)rootView.findViewById(R.id.barchart);
+        BarChart barChart = (BarChart)rootView.findViewById(R.id.non_compliance_stats_barchart);
+        barChart.setDescription("");
+        // create BarEntry for Bar Group 1
+        ArrayList<BarEntry> totalComliance = new ArrayList<>();
+        totalComliance.add(new BarEntry(25f, 0));
+        totalComliance.add(new BarEntry(35f, 1));
+        // creating dataset for Bar Group1
+        BarDataSet barDataSet1 = new BarDataSet(totalComliance, "Due");
+        barDataSet1.setColor(Color.rgb(43, 126, 208));
+        // create BarEntry for Bar Group 1
+        ArrayList<BarEntry> completed = new ArrayList<>();
+        completed.add(new BarEntry(15f, 0));
+        completed.add(new BarEntry(25f, 1));
+        // creating dataset for Bar Group 2
+        BarDataSet barDataSet2 = new BarDataSet(completed, "Completed");
+        barDataSet2.setColor(Color.rgb(65, 162, 27));
+
+        // create BarEntry for Bar Group 1
+        ArrayList<BarEntry> inprogres = new ArrayList<>();
+        inprogres.add(new BarEntry(6f, 0));
+        inprogres.add(new BarEntry(5f, 1));
+        // creating dataset for Bar Group 2
+        BarDataSet barDataSet3 = new BarDataSet(inprogres, "Inprogres");
+        barDataSet3.setColor(Color.rgb(208, 200, 43));
+
+        // create BarEntry for Bar Group 1
+        ArrayList<BarEntry> delayed = new ArrayList<>();
+        delayed.add(new BarEntry(15f, 0));
+        delayed.add(new BarEntry(10f, 1));
+        // creating dataset for Bar Group 2
+        BarDataSet barDataSet4 = new BarDataSet(delayed, "Delayed");
+        barDataSet4.setColor(Color.rgb(208, 65, 43));
+
+        ArrayList<String> labels = new ArrayList<String>();
+        labels.add("Oct");
+        labels.add("Nov");
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<>();  // combined all dataset into an arraylist
+        dataSets.add(barDataSet1);
+        dataSets.add(barDataSet2);
+        dataSets.add(barDataSet3);
+        dataSets.add(barDataSet4);
+
+        // initialize the Bardata with argument labels and dataSet
+        BarData data = new BarData(labels,dataSets);
+
+        barChart.setData(data);
+    }
+
+
+    private void complianceTrend(View rootView){
+        BarChart barChart = (BarChart)rootView.findViewById(R.id.compliance_trend_barchart);
         barChart.setDescription("");
         // create BarEntry for Bar Group 1
         ArrayList<BarEntry> totalComliance = new ArrayList<>();

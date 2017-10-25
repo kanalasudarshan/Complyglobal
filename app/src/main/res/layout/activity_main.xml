@@ -126,10 +126,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:text="Enter Your Mobile PIN"
-                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:textColor="@color/transparent"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    android:id="@+id/enter_your_mpin" />
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
