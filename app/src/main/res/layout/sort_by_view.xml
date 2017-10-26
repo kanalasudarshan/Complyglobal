@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="1dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sort by"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+    <RadioGroup
+        android:id="@+id/radioButtomGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+        <RadioButton
+            android:id="@+id/due_date_most_recent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Due Date (Most recent)" />
+
+        <RadioButton
+            android:id="@+id/due_date_oldest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Due Date (Oldest)" />
+
+        <RadioButton
+            android:id="@+id/compliance_type_A_Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compliance Type (A to Z)" />
+
+        <RadioButton
+            android:id="@+id/compliance_type_Z_A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compliance Type (Z to A)" />
+
+        <RadioButton
+            android:id="@+id/compliance_category_A_Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compliane Category  (A to Z)" />
+
+        <RadioButton
+            android:id="@+id/compliance_category_Z_A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Compliane Category  (Z to A)" />
+    </RadioGroup>
+
+</LinearLayout>
