@@ -8,6 +8,7 @@ import android.util.Log;
 
 import java.util.Calendar;
 
+import app.complyglobal.dto.NotificationDTO;
 import app.complyglobal.service.NotificationBroadcastReceiver;
 import app.complyglobal.service.NotificationService;
 
@@ -16,24 +17,31 @@ import app.complyglobal.service.NotificationService;
  */
 public class SchedulerUtil {
 
-    public static void scheduleJob(Context context) {
+    public static void scheduleJob(Context context, int requestCode,Calendar cal,boolean isUpdate,boolean off_notification) {
         Log.i("SchedulerUtil","Notification called");
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
 
         Intent notificationIntent = new Intent("app.complyglobal.NOTIFICATION_ACTION");
-        boolean alarmUp = (PendingIntent.getBroadcast(context, 100,notificationIntent,PendingIntent.FLAG_NO_CREATE)!=null);
+        notificationIntent.putExtra("notificatinId",requestCode);
+        boolean alarmUp = (PendingIntent.getBroadcast(context, requestCode,notificationIntent,PendingIntent.FLAG_NO_CREATE)!=null);
         if(!alarmUp) {
             Log.i("SchedulerUtil","Alarm scheduled");
-            PendingIntent broadcast = PendingIntent.getBroadcast(context, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            Calendar cal = Calendar.getInstance();
-            cal.set(Calendar.HOUR, 7);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.AM_PM, Calendar.PM);
+            PendingIntent broadcast = PendingIntent.getBroadcast(context, requestCode, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             Log.i("SchedulerUtil","Notification trigger time :"+cal.getTime());
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, broadcast);
         }else{
             Log.i("SchedulerUtil","Alarm already running");
+            if(isUpdate){
+                if(off_notification) {
+                    PendingIntent broadcast = PendingIntent.getBroadcast(context, requestCode, notificationIntent, PendingIntent.FLAG_NO_CREATE);
+                    Log.i("SchedulerUtil", "Notification switched off");
+                    alarmManager.cancel(broadcast);
+                }else{
+                    PendingIntent broadcast = PendingIntent.getBroadcast(context, requestCode, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                    Log.i("SchedulerUtil", "Notification trigger time update :" + cal.getTime());
+                    alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), AlarmManager.INTERVAL_DAY, broadcast);
+                }
+            }
         }
     }
 }

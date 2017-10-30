@@ -43,4 +43,7 @@
     <string name="title_activity_register_list_page">Register List</string>
     <string name="title_activity_registration_list_page">Registration List</string>
     <string name="title_activity_calendar">Calendar</string>
+
+    <string name="search_title">Search</string>
+    <string name="title_activity_filter">FilterActivity</string>
 </resources>

@@ -31,7 +31,7 @@ public class NotificationBroadcastReceiver extends BroadcastReceiver {
 
         NotificationDTO dto=new NotificationDTO();
         dto.setSummaryText("Due Today");
-        dto.setBigContentTitle("Due Today");
+        dto.setBigContentTitle("Due Today"+intent.getIntExtra("notificatinId",0));
         dto.setNotificationContent("Issue declaration in Form E-1 to the dealer purchasing the goods in the course of inter-state sales");
         notifyJob(context,dto);
 

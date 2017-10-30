@@ -1,9 +1,12 @@
 package app.complyglobal.dummy;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import app.complyglobal.utils.Constants;
 
 /**
  * Helper class for providing sample content for user interfaces created by
@@ -13,16 +16,10 @@ import java.util.Map;
  */
 public class DummyContent {
 
-    /**
-     * An array of sample (dummy) items.
-     */
-    public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
 
-    /**
-     * A map of sample (dummy) items, by ID.
-     */
+    public static List<DummyItem> ITEMS = new ArrayList<DummyItem>();
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
-
+    public static Calendar calendar=Calendar.getInstance();
     private static final int COUNT = 25;
 
     static {
@@ -42,12 +39,24 @@ public class DummyContent {
     }
 
     private static String makeDetails(int position) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Details about Item: ").append(position);
-        for (int i = 0; i < position; i++) {
-            builder.append("\nMore details information here.");
+        switch (position){
+            case 1:
+                calendar.add(Calendar.DAY_OF_MONTH,position);
+                break;
+            case 5:
+                calendar.add(Calendar.DAY_OF_MONTH,position);
+                break;
+            case 10:
+                calendar.add(Calendar.DAY_OF_MONTH,position);
+                break;
+            case 15:
+                calendar.add(Calendar.DAY_OF_MONTH,position);
+                break;
+            case 20:
+                calendar.add(Calendar.DAY_OF_MONTH,position);
+                break;
         }
-        return builder.toString();
+        return Constants.simpleDateFormat.format(calendar.getTime());
     }
 
     /**
@@ -56,12 +65,11 @@ public class DummyContent {
     public static class DummyItem {
         public final String id;
         public final String content;
-        public final String details;
-
-        public DummyItem(String id, String content, String details) {
+        public final String date;
+        public DummyItem(String id, String content, String date) {
             this.id = id;
             this.content = content;
-            this.details = details;
+            this.date = date;
         }
 
         @Override

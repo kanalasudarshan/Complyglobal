@@ -11,129 +11,140 @@
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white_smoke"
             android:orientation="vertical">
+
+            //List page headding
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:translationZ="10dp"
+                android:background="@drawable/style_border_layout"
+                android:elevation="4dp"
                 android:gravity="center_horizontal"
-                android:background="@drawable/style_border_layout">
+                android:orientation="vertical"
+                android:translationZ="10dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
                     <TextView
+                        android:id="@+id/list_header"
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
-                        android:id="@+id/list_header"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight=".50"
+                        android:gravity="center_vertical"
                         android:text="Calendar Compliance"
                         android:textColor="@color/colorApp"
-                        android:textSize="25sp"
-                        android:layout_weight=".50"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical" />
+                        android:textSize="25sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp"
                     android:gravity="center_horizontal"
-                    android:layout_marginBottom="20dp">
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/style_border_right"
-                        android:paddingRight="20dp"
-                        android:gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/list_delay_count_text"
-                            android:text="Delay"
-                            android:textSize="14sp"/>
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingRight="20dp">
 
                         <TextView
+                            android:id="@+id/list_delay_count_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="Delay"
+                            android:textSize="14sp" />
+
+                        <TextView
                             android:id="@+id/list_delay_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight=".20"
+                            android:background="@drawable/style_border_oval_red"
+                            android:gravity="center"
                             android:text="40"
                             android:textColor="@color/delay"
-                            android:background="@drawable/style_border_oval_red"
                             android:textSize="14sp"
-                            android:layout_weight=".20"
-                            android:layout_marginLeft="10dp"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+                            android:textStyle="bold" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/style_border_right"
-                        android:paddingRight="20dp"
-                        android:gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/list_inprogress_count_text"
-                            android:text="Inprogress"
-                            android:textSize="14sp"
-                            android:layout_weight=".30"/>
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingRight="20dp">
 
                         <TextView
+                            android:id="@+id/list_inprogress_count_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_weight=".30"
+                            android:text="Inprogress"
+                            android:textSize="14sp" />
+
+                        <TextView
                             android:id="@+id/list_due_count"
-                            android:text="40"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight=".20"
+                            android:autoText="false"
                             android:background="@drawable/style_border_oval_yellow"
+                            android:gravity="center"
+                            android:text="40"
                             android:textColor="@color/inprogress"
                             android:textSize="14sp"
-                            android:layout_weight=".20"
-                            android:layout_marginLeft="10dp"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:autoText="false" />
+                            android:textStyle="bold" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
-                        android:gravity="center">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/list_due_count_text"
-                            android:text="Due"
-                            android:textSize="14sp"
-                            android:layout_weight=".30" />
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/list_due_count_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_weight=".30"
+                            android:text="Due"
+                            android:textSize="14sp" />
+
+                        <TextView
                             android:id="@+id/list_completed_count"
-                            android:text="21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight=".20"
                             android:background="@drawable/style_border_oval_due"
+                            android:gravity="center"
+                            android:text="21"
                             android:textColor="@color/due"
                             android:textSize="14sp"
-                            android:layout_weight=".20"
-                            android:layout_marginLeft="10dp"
-                            android:textStyle="bold"
-                            android:gravity="center" />
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -158,12 +169,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@color/delay"
-                        android:text="Delay"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="10dp" />
+                        android:text="Delay Compliance"
+                        android:textColor="@color/delay"
+                        android:textSize="18dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -476,12 +487,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@color/inprogress"
-                        android:text="Inprogress"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="10dp" />
+                        android:text="Inprogress Compliance"
+                        android:textColor="@color/inprogress"
+                        android:textSize="18dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -796,12 +807,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@color/due"
-                        android:text="Due"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="10dp" />
+                        android:text="Due Compliance"
+                        android:textColor="@color/due"
+                        android:textSize="18dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -19,16 +19,15 @@
             android:layout_height="50dp"
             android:orientation="vertical"
             android:background="@drawable/style_border_layout">
-            <TextView
+
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="User Name"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:textSize="15sp"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/user_name_hedding"
-                android:layout_marginTop="5dp" />
+                android:layout_height="fill_parent"
+                android:id="@+id/email_icon"
+                android:src="@drawable/ic_email"
+                android:layout_alignTop="@+id/user_name_hedding"
+                android:layout_alignParentStart="true" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,7 +36,22 @@
                 android:textSize="16dp"
                 android:textColor="@android:color/black"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toEndOf="@id/email_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="false"
+                android:textSize="15sp"
+                android:layout_alignParentEnd="false"
+                android:id="@+id/user_name_hedding"
+                android:layout_marginTop="5dp"
+                android:layout_alignStart="@id/user_name" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,6 +61,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginRight="20dp"
                 android:id="@+id/edit_user_name" />
+
+
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -54,16 +70,26 @@
             android:orientation="vertical"
             android:background="@drawable/style_border_layout"
             android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/user_first_name_icon"
+                android:src="@drawable/ic_user_color"
+                android:layout_alignBottom="@+id/first_name"
+                android:layout_alignParentStart="true" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="First Name"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
+                android:layout_alignParentStart="false"
                 android:textSize="15sp"
-                android:layout_alignParentEnd="true"
+                android:layout_alignParentEnd="false"
                 android:id="@+id/first_name_hedding"
-                android:layout_marginTop="5dp" />
+                android:layout_marginTop="5dp"
+                android:layout_alignStart="@id/first_name" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,7 +98,9 @@
                 android:textSize="16dp"
                 android:textColor="@android:color/black"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toEndOf="@id/user_first_name_icon" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,6 +110,8 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginRight="20dp"
                 android:id="@+id/edit_first_name" />
+
+
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -89,16 +119,13 @@
             android:orientation="vertical"
             android:background="@drawable/style_border_layout"
             android:gravity="center_vertical">
-            <TextView
+
+            <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Last Name"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
-                android:textSize="15sp"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/Last_name_hedding"
-                android:layout_marginTop="5dp" />
+                android:layout_height="match_parent"
+                android:id="@+id/user_last_name_icon"
+                android:src="@drawable/ic_user_color" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,7 +134,22 @@
                 android:textSize="16dp"
                 android:textColor="@android:color/black"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toEndOf="@id/user_last_name_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="false"
+                android:textSize="15sp"
+                android:layout_alignParentEnd="false"
+                android:id="@+id/Last_name_hedding"
+                android:layout_marginTop="5dp"
+                android:layout_alignStart="@id/Last_name" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,6 +159,9 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginRight="20dp"
                 android:id="@+id/edit_last_name" />
+
+
+
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -128,19 +173,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mobile Number"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
                 android:textSize="15sp"
-                android:layout_alignParentEnd="true"
                 android:id="@+id/mobile_number_hedding"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/moble_number"
                 android:layout_marginTop="5dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+91"
+                android:text="+91 944XXXXX99"
                 android:id="@+id/moble_number"
                 android:textSize="16dp"
                 android:textColor="@android:color/black"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/phone_icon"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="5dp" />
             <ImageView
@@ -152,6 +199,11 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginRight="20dp"
                 android:id="@+id/edit_mobile_number" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/phone_icon"
+                android:src="@drawable/ic_phone" />
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
@@ -163,11 +215,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mobile PIN"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true"
                 android:textSize="15sp"
-                android:layout_alignParentEnd="true"
                 android:id="@+id/mobile_pin_hedding"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/mobile_pin"
                 android:layout_marginTop="5dp" />
             <TextView
                 android:layout_width="wrap_content"
@@ -176,8 +227,10 @@
                 android:id="@+id/mobile_pin"
                 android:textSize="16dp"
                 android:textColor="@android:color/black"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="5dp" />
+                android:layout_toEndOf="@+id/key_icon"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="2dp"
+                android:layout_below="@+id/mobile_pin_hedding" />
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -187,6 +240,13 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginRight="20dp"
                 android:id="@+id/edit_mpin" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/key_icon"
+                android:src="@drawable/ic_key"
+                android:layout_alignParentStart="false" />
         </RelativeLayout>
     </LinearLayout>
     <Button

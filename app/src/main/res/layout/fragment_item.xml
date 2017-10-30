@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/task_tiles"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:layout_height="90dp"
-    android:background="@drawable/style_border_layout_app_color"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:background="@color/white"
+    android:elevation="5dp"
     android:foreground="?attr/selectableItemBackground"
-    android:id="@+id/task_tiles">
+    android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/id"
-            android:text="21"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceListItem"
             android:layout_marginTop="5dp"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:text="21"
+            android:textAppearance="?attr/textAppearanceListItem" />
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/attachment"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_attachment_1"
-            android:layout_marginTop="4dp" />
-        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/workflow"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/ic_group_work"
-            android:layout_marginTop="4dp" />
+            android:layout_marginTop="4dp"
+            app:srcCompat="@drawable/ic_attachment_1" />
+
+        <ImageView
+            android:id="@+id/workflow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_group_work" />
 
 
     </LinearLayout>
@@ -41,47 +47,99 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/content"
-            android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/style_border_layout"
             android:layout_marginTop="5dp"
+            android:background="@drawable/style_border_layout"
+            android:paddingBottom="5dp"
 
-            android:paddingBottom="5dp" />
+            android:text="File Annual Return every calendar year on or before 1st February File Annual Return every calendar year on or before 1st February" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:background="@drawable/style_border_layout"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/status_hedding"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/content"
+                android:layout_below="@+id/content"
+                android:text="Status  :" />
+
+            <TextView
+                android:id="@+id/status_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Completed"
+                android:textColor="@color/due" />
+
             <TextView
                 android:id="@+id/due_one_hedding"
-                android:text="Due On :"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/content"
                 android:layout_below="@+id/content"
-                android:layout_alignStart="@+id/content" />
+                android:layout_marginLeft="10dp"
+                android:text="Due On :" />
+
             <TextView
                 android:id="@+id/due_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="15-06-2017"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/due"/>
-            <TextView
-                android:id="@+id/severity_hedding"
-                android:text="Severity :"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/severity"
-                android:text="CRITICAL"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/red"/>
-
-            </LinearLayout>
+                android:textColor="@color/due" />
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/compliance_type_hedding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type  :   " />
+
+            <TextView
+                android:id="@+id/compliance_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HR Compliance"
+                android:textColor="@color/due" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/compliance_category_hedding"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Category :" />
+
+            <TextView
+                android:id="@+id/compliance_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Provident Fund"
+                android:textColor="@color/due" />
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

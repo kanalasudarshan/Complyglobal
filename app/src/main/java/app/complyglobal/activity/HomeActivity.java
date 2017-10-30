@@ -1,11 +1,13 @@
 package app.complyglobal.activity;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -17,8 +19,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.Entry;
@@ -29,9 +35,13 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import app.complyglobal.R;
 import app.complyglobal.adapter.TabsPagerAdapter;
+import app.complyglobal.behaviors.BottomNavigationBehavior;
+import app.complyglobal.dao.NotificationTimeDao;
+import app.complyglobal.dto.NotificationDTO;
 import app.complyglobal.dummy.DummyContent;
 import app.complyglobal.fragment.CheckedListFragment;
 import app.complyglobal.fragment.DashboardFragment;
@@ -41,6 +51,8 @@ import app.complyglobal.fragment.RegistrationListFragment;
 import app.complyglobal.helper.BottomNavigationViewHelper;
 import app.complyglobal.helper.ServiceHelper;
 import app.complyglobal.service.NotificationService;
+import app.complyglobal.utils.Constants;
+import app.complyglobal.utils.FileJsonReader;
 import app.complyglobal.utils.SchedulerUtil;
 
 public class HomeActivity extends AppCompatActivity   implements NavigationView.OnNavigationItemSelectedListener{
@@ -53,6 +65,7 @@ public class HomeActivity extends AppCompatActivity   implements NavigationView.
      */
     private ViewPager mViewPager;
     private TabsPagerAdapter dashboardTabs;
+    private Calendar calendar=Calendar.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,22 +76,18 @@ public class HomeActivity extends AppCompatActivity   implements NavigationView.
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
 
         BottomNavigationView bnav = (BottomNavigationView) findViewById(R.id.bottombar);
+        bnav.setSelected(false);
         BottomNavigationViewHelper.disableShiftMode(bnav);
 
-        /*Fragment fragment=new DashboardFragment();
-        if(fragment!=null){
-            FragmentTransaction ft=getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.home_content,fragment);
-            ft.commit();
-        }*/
 
         dashboardTabs = new TabsPagerAdapter(getSupportFragmentManager());
         // Set up the ViewPager with the sections adapter.
@@ -90,7 +99,37 @@ public class HomeActivity extends AppCompatActivity   implements NavigationView.
 
         ServiceHelper restHelper=ServiceHelper.getInstance(getApplicationContext());
         restHelper.getResponce();
-        SchedulerUtil.scheduleJob(getApplicationContext());
+
+        NotificationTimeDao notificationTimeDao=new NotificationTimeDao(this);
+        NotificationDTO dto_1= notificationTimeDao.getNotificationById(Constants.NOTIFICATION_ONE_ID);
+        Calendar cal=Calendar.getInstance();
+        try {
+            cal.setTime(Constants.simpleDateFormat.parse(dto_1.getScheduleTime()));
+            cal.set(Calendar.YEAR,calendar.get(Calendar.YEAR));
+            cal.set(Calendar.MONTH,calendar.get(Calendar.MONTH));
+            cal.set(Calendar.DAY_OF_MONTH,calendar.get(Calendar.DAY_OF_MONTH));
+            if(calendar.after(cal)){
+                cal.add(Calendar.DAY_OF_MONTH,1);
+            }
+        }catch (Exception exception){
+            Log.e("HomeActivity","Notification 1 parse exception",exception);
+        }
+        SchedulerUtil.scheduleJob(this, Constants.NOTIFICATION_ONE_REQUEST_CODE,cal,false,false);
+
+        NotificationDTO dto_2= notificationTimeDao.getNotificationById(Constants.NOTIFICATION_TWO_ID);
+        try {
+            cal.setTime(Constants.simpleDateFormat.parse(dto_2.getScheduleTime()));
+            cal.set(Calendar.YEAR,calendar.get(Calendar.YEAR));
+            cal.set(Calendar.MONTH,calendar.get(Calendar.MONTH));
+            cal.set(Calendar.DAY_OF_MONTH,calendar.get(Calendar.DAY_OF_MONTH));
+            if(calendar.after(cal)){
+                cal.add(Calendar.DAY_OF_MONTH,1);
+            }
+        }catch (Exception exception){
+            Log.e("HomeActivity","Notification 2 parse exception",exception);
+        }
+        SchedulerUtil.scheduleJob(this, Constants.NOTIFICATION_TWO_REQUEST_CODE,cal,false,false);
+
 
     }
 

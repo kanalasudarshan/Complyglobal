@@ -87,7 +87,11 @@
             android:name=".activity.CalendarActivity"
             android:label="@string/title_activity_calendar"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.LoaderActivity"></activity>
+        <activity android:name=".activity.LoaderActivity" />
+        <activity
+            android:name=".activity.FilterActivity"
+            android:label="@string/title_activity_filter"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

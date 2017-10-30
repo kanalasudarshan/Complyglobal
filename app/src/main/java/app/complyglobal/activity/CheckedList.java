@@ -50,7 +50,7 @@ public class CheckedList extends AppCompatActivity {
                 startActivity(listPage);
             }
         });
-        completed_show_more_view=(LinearLayout)findViewById(R.id.completed_show_more);
+        completed_show_more_view=(LinearLayout)findViewById(R.id.inprogress_show_more);
         completed_show_more_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

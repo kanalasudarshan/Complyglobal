@@ -19,7 +19,7 @@ import app.complyglobal.dto.UserDTO;
 public class UserDAO extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "contactsManager";
+    private static final String DATABASE_NAME = "Complyglobal";
 
     private static final String TABLE_USER = "b_user";
 

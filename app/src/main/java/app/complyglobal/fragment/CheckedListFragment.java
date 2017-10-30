@@ -12,12 +12,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import app.complyglobal.activity.ComplianeDetailsActivity;
 import app.complyglobal.adapter.ListViewAdapterForChecklist;
 import app.complyglobal.R;
+import app.complyglobal.dto.ComplianceDTO;
 import app.complyglobal.dummy.DummyContent;
 import app.complyglobal.dummy.DummyContent.DummyItem;
 import app.complyglobal.listener.RecyclerItemClickListener;
+import app.complyglobal.utils.ComplianceSortingUtil;
+import app.complyglobal.utils.Constants;
+import app.complyglobal.utils.FileJsonReader;
 
 /**
  * A fragment representing a list of Items.
@@ -33,6 +39,7 @@ public class CheckedListFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
+    private List<ComplianceDTO> listItem;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -53,7 +60,7 @@ public class CheckedListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        listItem= FileJsonReader.getJsonData(getContext());
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -71,8 +78,10 @@ public class CheckedListFragment extends Fragment {
                 new RecyclerItemClickListener(context, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Intent it=new Intent(getActivity(),ComplianeDetailsActivity.class);
-                        startActivity(it);
+                        if(view.findViewById(R.id.list_header)==null) {
+                            Intent it = new Intent(getActivity(), ComplianeDetailsActivity.class);
+                            startActivity(it);
+                        }
                     }
                 })
             );
@@ -82,7 +91,7 @@ public class CheckedListFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new ListViewAdapterForChecklist(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new ListViewAdapterForChecklist(ComplianceSortingUtil.buildList(listItem, Constants.SORTING_BY_DATE_ASC), mListener));
         }
         return view;
     }
@@ -105,6 +114,6 @@ public class CheckedListFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(ComplianceDTO item);
     }
 }

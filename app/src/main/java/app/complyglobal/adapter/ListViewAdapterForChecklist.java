@@ -5,8 +5,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import app.complyglobal.dto.ComplianceDTO;
+import app.complyglobal.dto.EventItem;
+import app.complyglobal.dto.HeaderItem;
+import app.complyglobal.dto.ListItem;
 import app.complyglobal.fragment.CheckedListFragment.OnListFragmentInteractionListener;
 import app.complyglobal.R;
 import app.complyglobal.dummy.DummyContent.DummyItem;
@@ -23,10 +28,10 @@ public class ListViewAdapterForChecklist extends RecyclerView.Adapter<RecyclerVi
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
-    private final List<DummyItem> mValues;
+    private final List<ListItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public ListViewAdapterForChecklist(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public ListViewAdapterForChecklist(List<ListItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -54,12 +59,21 @@ public class ListViewAdapterForChecklist extends RecyclerView.Adapter<RecyclerVi
         if(holder instanceof  HeaderHolder){
             Log.i("MyItemRecycl","onBindViewHolder HeaderHolder added");
             HeaderHolder header= (HeaderHolder) holder;
+            HeaderItem headerItem=(HeaderItem)mValues.get(position);
+            header.mView.setText(headerItem.getHeaderItem());
         }else if(holder instanceof  ListViewHolder){
             Log.i("MyItemRecycl","onBindViewHolder ViewHolder added");
             ListViewHolder contentView= (ListViewHolder) holder;
-            contentView.mItem = mValues.get(position);
-            contentView.mIdView.setText(mValues.get(position).id);
-            contentView.mContentView.setText(mValues.get(position).content);
+            EventItem eventItem=(EventItem)mValues.get(position);
+            contentView.mIdView.setText("456");
+            //contentView.dueOn.setText(eventItem.getEventItem().getDueDateString());
+            contentView.mContentView.setText(eventItem.getEventItem().getComplianceTaskname());
+
+            contentView.status.setText(eventItem.getEventItem().getStatus());
+            contentView.complianceType.setText(eventItem.getEventItem().getComplianceTypeName());
+            contentView.complianceCategory.setText(eventItem.getEventItem().getComplianceCaetgoryName());
+            if(eventItem.getEventItem().isWorkFlow())
+                contentView.workflow.setVisibility(View.VISIBLE);
 
             contentView.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -86,7 +100,7 @@ public class ListViewAdapterForChecklist extends RecyclerView.Adapter<RecyclerVi
     }
 
     private boolean isPositionHeader(int position) {
-        return position == 0;
+        return mValues.get(position).getType()==0;
     }
 
     private boolean isPositionFooter(int position) {
@@ -102,13 +116,22 @@ public class ListViewAdapterForChecklist extends RecyclerView.Adapter<RecyclerVi
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
-
+        public final ImageView workflow;
+        public ComplianceDTO mItem;
+        public final TextView dueOn;
+        public final TextView status;
+        public final TextView complianceType;
+        public final TextView complianceCategory;
         public ListViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.id);
             mContentView = (TextView) view.findViewById(R.id.content);
+            workflow=(ImageView)view.findViewById(R.id.workflow);
+            dueOn=(TextView) view.findViewById(R.id.due_one);
+            status=(TextView) view.findViewById(R.id.status_text);
+            complianceType=(TextView) view.findViewById(R.id.compliance_type);
+            complianceCategory=(TextView) view.findViewById(R.id.compliance_category);
         }
 
         @Override
@@ -118,11 +141,11 @@ public class ListViewAdapterForChecklist extends RecyclerView.Adapter<RecyclerVi
     }
 
     public class HeaderHolder extends RecyclerView.ViewHolder {
-        public final View mView;
+        public final TextView mView;
 
         public HeaderHolder(View view) {
             super(view);
-            mView = view;
+            mView = (TextView)view.findViewById(R.id.header_id);
         }
     }
 }

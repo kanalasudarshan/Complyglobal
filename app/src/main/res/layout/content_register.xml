@@ -159,12 +159,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@color/delay"
-                        android:text="Delay"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="10dp" />
+                        android:text="Delay Compliance"
+                        android:textColor="@color/delay"
+                        android:textSize="18dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -477,12 +477,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@color/inprogress"
-                        android:text="Inprogress"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="10dp" />
+                        android:text="Inprogress Compliance"
+                        android:textColor="@color/inprogress"
+                        android:textSize="18dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -797,12 +797,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@color/due"
-                        android:text="Due"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
                         android:gravity="center_vertical"
-                        android:layout_marginTop="10dp" />
+                        android:text="Due Compliance"
+                        android:textColor="@color/due"
+                        android:textSize="18dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
